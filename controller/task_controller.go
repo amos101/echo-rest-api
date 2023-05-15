@@ -45,6 +45,7 @@ func (tc *taskController) GetTaskById(c echo.Context) error {
 	id := c.Param("taskId")
 	taskId, _ := strconv.Atoi(id)
 	taskRes, err := tc.tu.GetTaskById(uint(userId.(float64)), uint(taskId))
+
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, err.Error())
 	}
